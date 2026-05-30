@@ -1,0 +1,9 @@
+# Mesaj Kimlik Doğrulama Kodları (MAC) Projesi Bağımlılıkları
+
+# Not: Bu proje temel HMAC ve Hash işlemleri için Python'un yerleşik
+# (built-in) kütüphanelerini (hmac, hashlib) kullanmaktadır.
+# Çalıştırmak için harici bir bağımlılığa (pip install) ihtiyaç yoktur.
+# Python 3.6 veya üzeri bir sürüm yeterlidir.
+
+# İleride test yazmak isterseniz aşağıdaki araçları aktif edebilirsiniz:
+# pytest>=7.4.0
