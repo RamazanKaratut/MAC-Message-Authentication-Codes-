@@ -1,103 +1,103 @@
 # Mesaj Kimlik Doğrulama Kodları (MAC) - Değerlendirme Testi
 
-Bu test, kriptografik kontrol toplamları, veri bütünlüğü ve MAC protokollerinin temel kavramlarını ölçmek amacıyla hazırlanmıştır. Her sorunun yalnızca bir doğru cevabı vardır.
+Bu test, MAC protokollerinin temel kavramlarını ölçmek amacıyla hazırlanmıştır. Her sorunun yalnızca bir doğru cevabı vardır.
 
 ---
 
 ### Soru 1: MAC'in Temel Amacı
-Mesaj Kimlik Doğrulama Kodlarının (MAC) siber güvenlik mimarisindeki birincil görevi aşağıdakilerden hangisidir?
-- [ ] A) Veriyi şifreleyerek tamamen gizli kalmasını sağlamak
-- [ ] B) Veri boyutunu sıkıştırarak ağ iletimini hızlandırmak
-- [ ] C) İletişim sırasında IP adreslerini gizlemek
-- [ ] D) Veri bütünlüğünü korumak ve mesajın doğru kaynaktan geldiğini doğrulamak
-- [ ] E) Asimetrik anahtar çiftleri üretmek
+Mesaj Kimlik Doğrulama Kodlarının (MAC) haberleşmedeki birincil amacı aşağıdakilerden hangisidir?
+- [ ] A) Verinin sadece şifrelenerek gizli kalmasını sağlamak
+- [ ] B) Veri bütünlüğünü korumak ve kaynağını doğrulamak
+- [ ] C) Veri iletim hızını artırmak
+- [ ] D) Mesaj boyutunu sıkıştırarak küçültmek
+- [ ] E) IP adreslerini şifreleyerek anonimleştirmek
 
-### Soru 2: Anahtar Yönetimi
-İki taraf arasında bir MAC protokolünün başarılı şekilde çalışabilmesi için haberleşmeden önce aşağıdakilerden hangisinin paylaşılması **zorunludur**?
-- [ ] A) Dijital sertifika
-- [ ] B) Ortak bir gizli (simetrik) anahtar
-- [ ] C) Herkese açık (public) anahtar
-- [ ] D) MAC adresleri tablosu
-- [ ] E) Biyometrik kimlik verisi
+### Soru 2: Zorunlu Paylaşım
+MAC oluştururken gönderici ve alıcının iletişimden önce neyi paylaşması kesinlikle zorunludur?
+- [ ] A) Açık anahtar (Public key)
+- [ ] B) Dijital sertifika
+- [ ] C) Ortak bir gizli anahtar
+- [ ] D) Rastgele bir onay kodu (Nonce)
+- [ ] E) MAC adresi tablosu
 
-### Soru 3: Şifreleme ve Bütünlük İlişkisi
-Sadece güçlü bir şifreleme algoritması (örneğin AES-CBC modunda) kullanılarak gönderilen bir veriye, aradaki aktif bir saldırgan müdahale ederse ve sistemde MAC kontrolü yoksa ne gerçekleşir?
-- [ ] A) Şifreleme algoritması müdahaleyi otomatik olarak onarır.
-- [ ] B) Sistem müdahaleyi IP başlığından anında tespit eder.
-- [ ] C) Veri bozuk deşifre edilir ancak sistem mesajın yolda değiştirildiğini matematiksel olarak fark edemez.
-- [ ] D) Saldırganın sistemi anında kilitlenir.
-- [ ] E) Mesaj tamamen silinir ve alıcıya hiç ulaşmaz.
+### Soru 3: Şifreleme ve Bütünlük
+Sadece güçlü bir şifreleme algoritması (örneğin AES) kullanmak, veri bütünlüğünü garanti eder mi?
+- [ ] A) Evet, şifreli veri kesinlikle değiştirilemez.
+- [ ] B) Evet, ama sadece büyük dosyalarda işe yarar.
+- [ ] C) Hayır, şifreleme sadece veri bütünlüğü yerine sadece hızı artırır.
+- [ ] D) Hayır, şifreleme sadece gizlilik sağlar, aktif değişiklikleri tespit edemez.
+- [ ] E) Hayır, çünkü şifreleme algoritmalarının tamamı internette herkese açıktır.
 
 ### Soru 4: Dijital İmza Karşılaştırması
-Mesaj Kimlik Doğrulama Kodları (MAC) ile Dijital İmzalar arasındaki en belirgin kriptografik ve hukuki fark aşağıdakilerden hangisidir?
-- [ ] A) MAC çok daha yavaş hesaplanır.
-- [ ] B) Dijital imza ortak (simetrik) anahtar kullanır.
-- [ ] C) MAC sadece metin dosyalarında kullanılabilir.
-- [ ] D) MAC, donanımsal hızlandırıcılara uygun değildir.
-- [ ] E) MAC "inkar edilemezlik" (non-repudiation) sağlamazken, dijital imza sağlar.
+Dijital İmza ile MAC arasındaki en belirgin kriptografik fark nedir?
+- [ ] A) MAC inkar edilemezlik (non-repudiation) sağlamaz, Dijital İmza sağlar.
+- [ ] B) MAC daha yavaştır.
+- [ ] C) Dijital imza ortak gizli anahtar kullanır.
+- [ ] D) MAC sadece metin dosyalarında çalışır.
+- [ ] E) Dijital imza hiçbir matematiksel işlem gerektirmez.
 
-### Soru 5: Gizli Önek (Secret Prefix) Zafiyeti
-Basit `t = h(k || x)` (Gizli Önek) tasarımı modern uygulamalarda neden tercih edilmez?
-- [ ] A) Ağ cihazlarında çok fazla enerji tükettiği için.
-- [ ] B) Sadece 64-bitlik anahtarları desteklediği için.
-- [ ] C) Saldırganın anahtarı bilmeden mesajın sonuna ekleme yapıp geçerli bir etiket üretebilmesi (Uzunluk Uzatma Saldırısı) yüzünden.
-- [ ] D) İnternet protokolü (TCP/IP) standartlarına uymadığı için.
-- [ ] E) Hesaplama süresi dijital imzalardan daha uzun olduğu için.
+### Soru 5: Zafiyetler
+Uzunluk Uzatma Saldırısı (Length Extension Attack) genellikle hangi hatalı MAC tasarımında ortaya çıkar?
+- [ ] A) Gizli Önek (Secret Prefix) tasarımında
+- [ ] B) HMAC tasarımında
+- [ ] C) Blok şifre (CBC-MAC) tasarımında
+- [ ] D) Asimetrik şifreleme tasarımlarında
+- [ ] E) CMAC tasarımında
 
 ### Soru 6: HMAC Mimarisi
-HMAC algoritmasının iç içe geçmiş iki katmanlı (Inner ve Outer loop) hash yapısı kullanmasının ana teknik sebebi nedir?
-- [ ] A) Mesajı iki kat daha hızlı şifrelemek.
-- [ ] B) Hash fonksiyonunun iç durumunu (internal state) gizleyerek uzunluk uzatma saldırılarını kesin olarak engellemek.
-- [ ] C) Veriyi iki kez sıkıştırarak depolama alanı kazanmak.
-- [ ] D) Simetrik anahtarı asimetrik anahtara dönüştürmek.
-- [ ] E) Kaba kuvvet (brute-force) saldırılarını yavaşlatmak.
+HMAC algoritması neden iç içe iki katmanlı (Inner ve Outer Loop) bir hash yapısı kullanır?
+- [ ] A) Sadece tek bir hash fonksiyonu desteklediği için.
+- [ ] B) İç durum bilgisini dışarıdan gizleyip uzunluk uzatma gibi saldırıları önlemek için.
+- [ ] C) Şifreleme hızını iki katına çıkarmak için.
+- [ ] D) Kodu daha karmaşık hale getirmek için.
+- [ ] E) Anahtarı iki farklı kişiye paylaştırmak için.
 
-### Soru 7: Protokol İşleyişi
-Alice ve Bob haberleşirken araya giren saldırgan Oscar, paketteki *sadece mesaj kısmını* değiştirip MAC etiketine hiç dokunmadan paketi Bob'a iletirse sistem nasıl tepki verir?
-- [ ] A) Bob'un kendi anahtarıyla hesapladığı yeni etiket ile paketteki eski etiket eşleşmez, paket reddedilir.
-- [ ] B) Bob mesajı kabul eder ve işlem normal devam eder.
-- [ ] C) Sistem mesajın eksik kısımlarını otomatik tamamlar.
-- [ ] D) Oscar gizli anahtarı otomatik olarak ele geçirmiş olur.
-- [ ] E) Bob'un sistemi asimetrik şifrelemeye geçiş yapar.
+### Soru 7: Saldırganın Sınırları
+Bir saldırgan, ağdan geçen MAC etiketini ve mesajı ele geçirdiğinde neden sahte bir mesaj üretemez?
+- [ ] A) MAC algoritması şifreyi çözmeyi imkansız kıldığı için.
+- [ ] B) Mesajı doğrulayacak ortak gizli anahtarı bilmediği için.
+- [ ] C) İnternet protokolleri buna izin vermediği için.
+- [ ] D) Mesajlar her zaman asimetrik olarak şifrelendiği için.
+- [ ] E) Mesajın boyutu ağ üzerinde kilitlendiği için.
 
-### Soru 8: CBC-MAC Zafiyeti
-Blok şifre tabanlı temel CBC-MAC algoritması hangi spesifik durumda kriptografik olarak tamamen **güvensiz** hale gelir ve sahteciliğe imkan tanır?
-- [ ] A) AES yerine DES kullanıldığında.
-- [ ] B) Mesajlar sadece donanımsal çiplere yazıldığında.
-- [ ] C) İletilen mesajlar sabit bir blok boyutunda olduğunda.
-- [ ] D) İletilen mesajlar değişken uzunluklara sahip olduğunda.
-- [ ] E) Başlangıç Vektörü (IV) rastgele seçildiğinde.
+### Soru 8: Alternatif Tasarımlar
+Sisteminizde güvenli bir Hash fonksiyonu (örneğin SHA-256) yoksa, bütünlük doğrulaması için hangi alternatif yöntemi kullanabilirsiniz?
+- [ ] A) Sadece düz metin iletimi
+- [ ] B) AES gibi blok şifrelemeye dayalı CBC-MAC veya CMAC
+- [ ] C) Wi-Fi şifresi
+- [ ] D) RSA Asimetrik Şifreleme
+- [ ] E) Dijital sertifika ile bağlantı şifreleme
 
-### Soru 9: Modern Blok Şifre Standartları
-Temel CBC-MAC'in zafiyetlerini gidermek için, değişken uzunluklu verileri blok şifrelerle doğrulamada kullanılan ve iki alt-anahtar üreten modern endüstri standardı hangisidir?
-- [ ] A) MD5
-- [ ] B) RSA
-- [ ] C) CMAC
-- [ ] D) Diffie-Hellman
-- [ ] E) SHA-1
+### Soru 9: Doğrulama Sonucu
+Bir alıcı, gelen verinin MAC doğrulamasını başarıyla geçtiğinde aşağıdaki önermelerden hangisini kesinlikle söyleyebilir?
+- [ ] A) "Bu mesajı benden başka hiç kimse okuyamadı."
+- [ ] B) "Bu mesajın boyutu yarı yarıya küçültüldü."
+- [ ] C) "Bu mesajı kesinlikle doğru kişi gönderdi ve yolda hiç değişmedi."
+- [ ] D) "Bu mesajı tüm dünyaya açık bir şekilde kanıtlayabilirim."
+- [ ] E) "Bu mesaj asimetrik anahtarlarla oluşturulmuştur."
 
 ### Soru 10: Terminoloji
-MAC işlemi sonucunda orijinal mesajın yanına eklenen ve genellikle 128-256 bit uzunluğunda olan güvenlik doğrulama verisine genel olarak ne ad verilir?
-- [ ] A) Açık Anahtar (Public Key)
-- [ ] B) Şifreli Metin (Ciphertext)
-- [ ] C) Başlangıç Vektörü (Initialization Vector)
-- [ ] D) Etiket (Tag) veya Kriptografik Kontrol Toplamı
-- [ ] E) Dijital Sertifika (Certificate)
+MAC işlemi sonucunda ortaya çıkan ve mesajın yanına eklenen küçük, sabit boyutlu doğrulama verisine ne ad verilir?
+- [ ] A) Şifreli metin (Ciphertext)
+- [ ] B) Etiket (Tag) veya Kriptografik kontrol toplamı
+- [ ] C) Açık anahtar (Public key)
+- [ ] D) Dijital sertifika
+- [ ] E) Başlangıç vektörü (IV)
 
 ---
 
 <details>
 <summary><strong>✅ Cevap Anahtarını Görmek İçin Tıklayın</strong></summary>
 
-1. **D** - Veri bütünlüğünü korumak ve mesajın doğru kaynaktan geldiğini doğrulamak
-2. **B** - Ortak bir gizli (simetrik) anahtar
-3. **C** - Veri bozuk deşifre edilir ancak sistem mesajın yolda değiştirildiğini matematiksel olarak fark edemez.
-4. **E** - MAC "inkar edilemezlik" (non-repudiation) sağlamazken, dijital imza sağlar.
-5. **C** - Saldırganın anahtarı bilmeden mesajın sonuna ekleme yapıp geçerli bir etiket üretebilmesi yüzünden.
-6. **B** - Hash fonksiyonunun iç durumunu (internal state) gizleyerek uzunluk uzatma saldırılarını kesin olarak engellemek.
-7. **A** - Bob'un kendi anahtarıyla hesapladığı yeni etiket ile paketteki eski etiket eşleşmez, paket reddedilir.
-8. **D** - İletilen mesajlar değişken uzunluklara sahip olduğunda.
-9. **C** - CMAC
-10. **D** - Etiket (Tag) veya Kriptografik Kontrol Toplamı
+1. **B** - Veri bütünlüğünü korumak ve kaynağını doğrulamak
+2. **C** - Ortak bir gizli anahtar
+3. **D** - Hayır, şifreleme sadece gizlilik sağlar, aktif değişiklikleri tespit edemez.
+4. **A** - MAC inkar edilemezlik (non-repudiation) sağlamaz, Dijital İmza sağlar.
+5. **A** - Gizli Önek (Secret Prefix) tasarımında
+6. **B** - İç durum bilgisini dışarıdan gizleyip uzunluk uzatma gibi saldırıları önlemek için.
+7. **B** - Mesajı doğrulayacak ortak gizli anahtarı bilmediği için.
+8. **B** - AES gibi blok şifrelemeye dayalı CBC-MAC veya CMAC
+9. **C** - "Bu mesajı kesinlikle doğru kişi gönderdi ve yolda hiç değişmedi."
+10. **B** - Etiket (Tag) veya Kriptografik kontrol toplamı
 
 </details>
