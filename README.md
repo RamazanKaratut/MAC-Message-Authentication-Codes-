@@ -1,35 +1,47 @@
-# Mesaj Kimlik Doğrulama Kodları (MAC) - Python Uygulaması
+# 🛡️ Mesaj Kimlik Doğrulama Kodları (MAC) - İnteraktif Web Simülasyonu
 
-Bu proje, **Bilgi Güvenliği ve Kriptografi** dersi kapsamında Mesaj Kimlik Doğrulama Kodlarının (MAC) çalışma mantığını uygulamalı olarak göstermek amacıyla hazırlanmıştır. 
+Bu proje, **Bilgi Güvenliği ve Kriptografi** dersi kapsamında Mesaj Kimlik Doğrulama Kodlarının (MAC) çalışma mantığını ve potansiyel tasarım zafiyetlerini uygulamalı olarak göstermek amacıyla hazırlanmıştır. 
 
-Uygulama, Python'un yerleşik kütüphanelerini kullanarak HMAC-SHA256 algoritması ile veri bütünlüğü ve kaynak doğrulaması süreçlerini simüle eder.
+Uygulama, modern web teknolojileri (Next.js & React) ve tarayıcı tabanlı **Web Crypto API (SHA-256)** kullanılarak veri bütünlüğü, kaynak doğrulaması ve ortadaki adam (Ortadaki Adam - MITM) saldırı süreçlerini interaktif bir arayüzle simüle eder.
 
 ## 🚀 Özellikler
 
-- **HMAC-SHA256 Etiket Üretimi:** Ortak gizli anahtar ve mesaj kullanılarak kriptografik kontrol toplamı oluşturma.
-- **Güvenli Doğrulama:** Zamanlama (timing) saldırılarına karşı `hmac.compare_digest` kullanılarak güvenli etiket karşılaştırması.
-- **Senaryo Simülasyonu:** Gönderici (Alice), Alıcı (Bob) ve araya giren aktif saldırgan (Oscar) senaryolarının kod üzerinde test edilmesi.
+- **İnteraktif Algoritma Simülasyonu:** Güvenli HMAC yapısı ile zafiyetli "Gizli Önek" (Secret Prefix) yapısının tarayıcı üzerinde canlı karşılaştırması.
+- **3 Farklı Ağ Senaryosu:**
+  1. **Güvenli İletişim:** Verinin yolda bozulmadan iletilmesi ve Bob tarafından başarıyla doğrulanması.
+  2. **Mesaj Manipülasyonu (Bütünlük İhlali):** Araya giren saldırganın (Oscar) mesajı değiştirmesi ancak anahtarı bilmediği için MAC etiketini güncelleyememesi sonucu Bob'un mesajı reddetmesi.
+  3. **Uzunluk Uzatma Saldırısı (Length Extension Attack):** Zayıf bir MAC tasarımı `h(k || x)` kullanıldığında, Oscar'ın anahtarı bilmeden önceki MAC durumunu kullanarak mesaja ekleme yapması ve geçerli bir sahte etiket üretmesi (Kritik Zafiyet).
+- **İzole Kriptografi Modülü:** Şifreleme algoritmalarının sunum sırasında kod üzerinden kolayca anlatılabilmesi için arayüzden ayrıştırılmış modüler yapı (`utils/mac.ts`).
 
-## 🛠️ Kurulum ve Kullanım
+## 🛠️ Teknolojiler
 
-Bu proje harici bir bağımlılık (pip paketi) gerektirmez. Yerleşik `hmac` ve `hashlib` modüllerini kullandığı için standart bir Python 3 ortamında doğrudan çalıştırılabilir.
+- **Framework:** Next.js (React)
+- **Stil & UI:** Tailwind CSS, `lucide-react` (İkonlar)
+- **Kriptografi:** Web Crypto API (`crypto.subtle.digest`)
+- **Dil:** TypeScript
+
+## ⚙️ Kurulum ve Kullanım
+
+Proje yerel ortamda Node.js gerektirir. Kurulumu tamamladıktan sonra projeyi anında ayağa kaldırabilirsiniz:
 
 1. Projeyi bilgisayarınıza klonlayın veya indirin:
    ```bash
    git clone <repo-url>
    cd <proje-klasoru>
 
-2. Terminal veya komut satırından Python dosyasını çalıştırın:
-   python mac_example.py
+2. Gerekli bağımlılıkları yükleyin:
+   npm install
+   npm install lucide-react
 
-3. Çıktı üzerinde Alice'in mesaj gönderimini, Bob'un doğrulamasını ve Oscar'ın başarısız sahtecilik girişimini gözlemleyin.
+3. Geliştirme sunucusunu başlatın:
+   http://localhost:3000
 
 
 
 👥 Hazırlayanlar
 Bu proje ve ilgili sunum materyalleri aşağıdaki ekip tarafından hazırlanmıştır:
 
-Ramazan Karatut
+Ramazan Karatut,
 Eyüp Can Şen
 
 📝 Lisans
